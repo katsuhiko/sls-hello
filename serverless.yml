@@ -1,0 +1,30 @@
+service: sls-hello
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: ${opt:stage, self:custom.defaultStage}
+  profile: ${self:custom.profiles.${self:provider.stage}}
+  region: ap-northeast-1
+
+custom:
+  defaultStage: dev
+  profiles:
+    dev: devSls
+    prod: prodSls
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+          cors: true
+  helloHoge:
+    handler: handler.helloHoge
+    events:
+      - http:
+          path: hello/{name}
+          method: get
+          cors: true
