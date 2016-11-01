@@ -8,7 +8,6 @@ module.exports.hello = (event, context, callback) => {
     },
     body: JSON.stringify({
       message: 'Hello World!',
-      input: event,
     }),
   };
 
@@ -23,7 +22,6 @@ module.exports.helloHoge = (event, context, callback) => {
     },
     body: JSON.stringify({
       message: `Hello ${event.pathParameters.name}!`,
-      input: event,
     }),
   };
 
