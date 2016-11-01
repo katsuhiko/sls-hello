@@ -1,0 +1,16 @@
+{
+  "name": "sls-hello",
+  "version": "0.1.0",
+  "description": "Hello World!",
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/katsuhiko/sls-hello.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+  }
+}
