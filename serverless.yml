@@ -13,6 +13,11 @@ custom:
     dev: devSls
     prod: prodSls
 
+package:
+  exclude:
+    - .git/**
+    - README.md
+
 functions:
   hello:
     handler: handler.hello
