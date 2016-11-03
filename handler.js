@@ -1,29 +1,19 @@
 'use strict';
 
-module.exports.hello = (event, context, callback) => {
-  const response = {
-    statusCode: 200,
+const createResponse = (statusCode, body) => (
+  {
+    statusCode,
     headers: {
-      'Access-Control-Allow-Origin' : '*'
+      'Access-Control-Allow-Origin': '*', // Required for CORS support to work
     },
-    body: JSON.stringify({
-      message: 'Hello World!',
-    }),
-  };
+    body: JSON.stringify(body),
+  }
+);
 
-  callback(null, response);
+module.exports.hello = (event, context, callback) => {
+  callback(null, createResponse(200, { message: 'Hello World!' }));
 };
 
 module.exports.helloHoge = (event, context, callback) => {
-  const response = {
-    statusCode: 200,
-    headers: {
-      'Access-Control-Allow-Origin' : '*'
-    },
-    body: JSON.stringify({
-      message: `Hello ${event.pathParameters.name}!`,
-    }),
-  };
-
-  callback(null, response);
+  callback(null, createResponse(200, { message: `Hello ${event.pathParameters.name}!` }));
 };
