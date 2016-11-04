@@ -11,9 +11,13 @@ const createResponse = (statusCode, body) => (
 );
 
 module.exports.hello = (event, context, callback) => {
+  console.log('Event:', JSON.stringify(event));
+
   callback(null, createResponse(200, { message: 'Hello World!' }));
 };
 
 module.exports.helloHoge = (event, context, callback) => {
+  console.log('Event:', JSON.stringify(event));
+
   callback(null, createResponse(200, { message: `Hello ${event.pathParameters.name}!` }));
 };
